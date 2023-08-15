@@ -176,3 +176,21 @@ public static void main(String[] args) {
 - Se um caminho for encontrado, exibimos as coordenadas dos nós no caminho. Caso contrário, informamos que o caminho não foi encontrado.
 
 Espero que esta explicação passo a passo tenha esclarecido como o algoritmo A* é implementado em Java e como cada parte do código contribui para a busca do caminho mais curto.
+
+## Dúvidas que eu tive:
+
+`O que é uma PriorityQueue e um HashSet?`
+
+Vamos explicar o que é uma `PriorityQueue` e um `HashSet` e por que foram usados nesta implementação do algoritmo A*.
+
+### `PriorityQueue`:
+Uma `PriorityQueue` é uma estrutura de dados que armazena elementos de maneira ordenada, de acordo com uma ordem específica. Neste contexto, usamos a `PriorityQueue` para manter os nós candidatos a serem explorados pelo algoritmo A*. Os nós são ordenados com base no custo total estimado (fCost), onde o nó com menor fCost é retirado primeiro. Isso ajuda o algoritmo a explorar primeiro os nós que têm maior probabilidade de levar a um caminho mais curto.
+
+No código, a `PriorityQueue<Node>` é usada para manter os nós que estão na lista de abertos (`openSet`), onde os nós com os menores custos estimados ficam no topo da fila. Isso ajuda a garantir que o algoritmo priorize a exploração dos nós mais promissores.
+
+### `HashSet`:
+Um `HashSet` é uma estrutura de dados que armazena elementos únicos, não ordenados. No contexto do algoritmo A*, usamos um `HashSet<Node>` para manter o controle dos nós que já foram explorados, ou seja, os nós que já foram adicionados à lista de fechados (`closedSet`). Isso evita que o algoritmo re-explore os mesmos nós, o que poderia levar a um desperdício de recursos computacionais e a um comportamento ineficiente.
+
+No código, o `closedSet` é utilizado para verificar se um nó já foi explorado anteriormente. Se um nó já estiver no `closedSet`, o algoritmo A* não irá considerá-lo novamente.
+
+Em resumo, a `PriorityQueue` ajuda a determinar a ordem de exploração dos nós com base em seus custos estimados, enquanto o `HashSet` ajuda a controlar quais nós já foram explorados, garantindo eficiência e evitando repetições na busca do caminho. Ambas as estruturas são cruciais para o funcionamento eficaz do algoritmo A*.
