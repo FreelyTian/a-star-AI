@@ -1,4 +1,4 @@
-Claro, vou dividir a implementação em passos e fornecer explicações detalhadas para cada parte do código. Vamos começar:
+Passos da implementação:
 
 ### Passo 1: Definindo a Classe Node
 ```java
